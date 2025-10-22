@@ -486,9 +486,547 @@ const questions = [
         question: "¿Qué enfoque CTS integra la diversidad cultural en el diseño?",
         options: ["Diseño universal", "Diseño intercultural", "Diseño global", "Diseño estándar"],
         correct: 1,
-        explanation: "El diseño intercultural integra diferentes perspectivas culturales, conocimientos locales y contextos diversos en el proceso de diseño tecnológico."
+    },
+    // Nuevas preguntas CTS específicas - Producción de Conocimiento
+    {
+        question: "¿Cuál es el objetivo principal de la investigación científica según el texto?",
+        options: ["Resolver problemas prácticos inmediatos", "Generar conocimiento nuevo y explicar fenómenos", "Desarrollar productos tecnológicos innovadores", "Aumentar la productividad industrial"],
+        correct: 1,
+        explanation: "La investigación científica busca comprender profundamente la realidad y formular teorías, sin necesidad de una aplicación inmediata."
+    },
+    {
+        question: "¿Cuál de los siguientes ejemplos corresponde a investigación tecnológica?",
+        options: ["Estudio del ADN mitocondrial humano", "Observación astronómica de exoplanetas", "Diseño de una batería de litio más eficiente", "Análisis teórico de leyes cuánticas"],
+        correct: 2,
+        explanation: "La investigación tecnológica aplica conocimientos científicos para resolver problemas concretos mediante la creación de productos o procesos útiles."
+    },
+    {
+        question: "¿Cuál es una diferencia clave entre los métodos científicos y tecnológicos?",
+        options: ["La ciencia se basa en el método hipotético-deductivo; la tecnología en el diseño y la prueba funcional", "La ciencia utiliza prototipos; la tecnología, hipótesis teóricas", "La ciencia prioriza la eficiencia; la tecnología, la replicabilidad", "La ciencia no requiere experimentación"],
+        correct: 0,
+        explanation: "La ciencia busca la verdad mediante experimentación controlada, mientras que la tecnología busca soluciones mediante ingeniería, optimización y validación práctica."
+    },
+    {
+        question: "En el ciclo de conocimiento, ¿qué etapa garantiza la confiabilidad y pertinencia de los resultados?",
+        options: ["Generación", "Validación", "Transferencia", "Evaluación"],
+        correct: 1,
+        explanation: "La validación implica pruebas, revisión por pares o ensayos de campo para confirmar la veracidad y relevancia de los resultados."
+    },
+    {
+        question: "¿Cuál de las siguientes afirmaciones describe la transferencia del conocimiento?",
+        options: ["Es la etapa en la que se publican resultados teóricos", "Consiste en aplicar el conocimiento validado en nuevos contextos sociales o productivos", "Se limita al intercambio académico", "Ocurre solo dentro de instituciones científicas"],
+        correct: 1,
+        explanation: "La transferencia busca que el conocimiento tenga impacto real a través de patentes, licencias o formación de recursos humanos."
+    },
+    {
+        question: "En la articulación entre ciencia, tecnología y producción, ¿qué papel cumple la ciencia?",
+        options: ["Actúa como base del conocimiento que permite entender fenómenos", "Funciona como puente de aplicación", "Se orienta solo a fines económicos", "Se limita a la observación empírica"],
+        correct: 0,
+        explanation: "La ciencia proporciona el marco teórico que sustenta la innovación tecnológica y la resolución de problemas productivos."
+    },
+    {
+        question: "¿Qué rol cumple la tecnología en esa articulación?",
+        options: ["Traducir el conocimiento científico en soluciones prácticas", "Cuestionar los métodos científicos", "Reemplazar la investigación teórica", "Evitar la participación del sector productivo"],
+        correct: 0,
+        explanation: "La tecnología convierte los saberes científicos en productos, procesos o sistemas que mejoran la eficiencia y sostenibilidad productiva."
+    },
+    {
+        question: "¿Qué busca el mapeo de actores, recursos e impactos en proyectos científico-tecnológicos?",
+        options: ["Identificar los actores, recursos y efectos asociados a un proyecto", "Acelerar la producción sin participación social", "Aumentar la competencia entre instituciones", "Reducir costos experimentales"],
+        correct: 0,
+        explanation: "Esta metodología permite visualizar la red de relaciones, recursos y consecuencias de un proyecto, mejorando su planificación y sostenibilidad."
+    },
+    {
+        question: "¿Qué modelo teórico plantea la colaboración entre universidad, empresa y Estado?",
+        options: ["Innovación dirigida por demanda", "Triple hélice", "Co-producción socio-técnica", "Lock-in tecnológico"],
+        correct: 1,
+        explanation: "Este modelo explica cómo la innovación surge del trabajo conjunto entre universidades (conocimiento), empresas (producción) y el Estado (financiamiento y regulación)."
+    },
+    {
+        question: "¿Qué enfoque busca integrar valores sociales en el diseño de tecnologías?",
+        options: ["Triple hélice", "Innovación dirigida por demanda", "Co-producción socio-técnica", "Modelo lineal"],
+        correct: 2,
+        explanation: "Este enfoque reconoce que la tecnología no es neutral y debe construirse junto con valores sociales, éticos y culturales."
+    },
+    {
+        question: "¿Cuál de las siguientes características corresponde a la investigación científica?",
+        options: ["Evalúa su éxito por la eficiencia y el costo", "Produce teorías y modelos explicativos", "Se orienta exclusivamente al mercado", "Genera patentes y prototipos industriales"],
+        correct: 1,
+        explanation: "La investigación científica se centra en el conocimiento abstracto y en la comprensión de fenómenos naturales o sociales, sin aplicación inmediata."
+    },
+    {
+        question: "¿Qué tipo de financiamiento es más habitual en la investigación tecnológica?",
+        options: ["Fondos académicos públicos", "Inversiones privadas o alianzas universidad–empresa", "Donaciones personales", "Subvenciones de fundaciones sin fines de lucro"],
+        correct: 1,
+        explanation: "El texto aclara que la investigación tecnológica suele depender de empresas, programas de innovación o convenios mixtos entre sector público y privado."
+    },
+    {
+        question: "¿Qué diferencia temporal distingue a la investigación científica de la tecnológica?",
+        options: ["La científica tiene plazos más largos e inciertos", "La tecnológica nunca requiere validación", "Ambas tienen plazos idénticos", "La científica se completa en menos de un año"],
+        correct: 0,
+        explanation: "Los descubrimientos científicos requieren procesos de verificación extensos, mientras que la tecnología opera con plazos definidos y metas concretas."
+    },
+    {
+        question: "Durante la etapa de generación de conocimiento, ¿cuál es el objetivo principal?",
+        options: ["Comercializar productos", "Descubrir o crear nuevos saberes", "Traducir el conocimiento en patentes", "Medir el impacto económico"],
+        correct: 1,
+        explanation: "La generación del conocimiento implica investigar fenómenos o diseñar soluciones originales, constituyendo el punto de partida del ciclo científico-tecnológico."
+    },
+    {
+        question: "¿Cuál de los siguientes mecanismos forma parte del proceso de transferencia del conocimiento?",
+        options: ["Revisión por pares", "Publicación teórica sin aplicación", "Licencias, patentes y spin-offs universitarios", "Ensayos de laboratorio"],
+        correct: 2,
+        explanation: "La transferencia implica trasladar resultados al entorno productivo o social mediante convenios, empresas derivadas o difusión científica aplicada."
+    },
+    {
+        question: "Según el documento, ¿por qué es importante articular ciencia, tecnología y producción?",
+        options: ["Porque aumenta la competitividad y promueve el desarrollo sostenible", "Porque reduce la participación social", "Porque separa el trabajo científico del industrial", "Porque limita la inversión estatal"],
+        correct: 0,
+        explanation: "La articulación efectiva entre estos tres componentes permite generar innovación con impacto social, ambiental y económico."
+    },
+    {
+        question: "¿Cuál es un ejemplo de articulación exitosa entre ciencia, tecnología y necesidades productivas?",
+        options: ["La expansión de las redes sociales", "El desarrollo de semillas transgénicas adaptadas localmente en Argentina", "El uso de videojuegos en educación", "La minería de criptomonedas"],
+        correct: 1,
+        explanation: "El texto cita este caso como ejemplo de cooperación entre centros de investigación, empresas agropecuarias y políticas públicas nacionales."
+    },
+    {
+        question: "¿Qué se analiza en la etapa de mapeo de actores?",
+        options: ["Los fenómenos naturales que afectan un proyecto", "Las instituciones, grupos y personas con interés o influencia en un proyecto", "Solo los resultados económicos del proyecto", "Los efectos de la ciencia en la educación"],
+        correct: 1,
+        explanation: "Esta etapa busca identificar quiénes participan o se ven afectados, clasificándolos según su nivel de poder e interés."
+    },
+    {
+        question: "¿Qué modelo teórico explica cómo la innovación surge de problemas concretos planteados por usuarios o empresas?",
+        options: ["Co-producción socio-técnica", "Innovación dirigida por demanda (user-driven innovation)", "Triple hélice", "Lock-in tecnológico"],
+        correct: 1,
+        explanation: "Este modelo se basa en que las necesidades reales del entorno impulsan la investigación aplicada y el desarrollo de soluciones prácticas."
+    },
+    {
+        question: "¿Por qué se considera que el modelo de co-producción socio-técnica es el más justo?",
+        options: ["Porque busca maximizar la ganancia empresarial", "Porque incorpora valores sociales y participación ciudadana en la tecnología", "Porque acelera la innovación sin control social", "Porque elimina la regulación estatal"],
+        correct: 1,
+        explanation: "Este enfoque reconoce que las decisiones técnicas deben incluir perspectivas éticas, culturales y comunitarias para lograr soluciones inclusivas y sostenibles."
+    },
+    // Preguntas CTS - Socialización y Democratización del Conocimiento
+    {
+        question: "¿Cuál es la diferencia principal entre difusión y socialización del conocimiento?",
+        options: ["La difusión ocurre en ámbitos académicos; la socialización implica apropiación y uso social", "La difusión es informal; la socialización es científica", "La difusión se da sólo en redes sociales; la socialización en universidades", "No hay diferencias entre ambas"],
+        correct: 0,
+        explanation: "El texto explica que la difusión usa canales formales (revistas, conferencias), mientras que la socialización transforma el conocimiento en herramienta social y participativa."
+    },
+    {
+        question: "¿Qué rol cumplen los medios de comunicación y las redes sociales en la socialización del conocimiento?",
+        options: ["Sustituyen la ciencia formal", "Permiten ampliar el acceso y traducir contenidos técnicos a formatos accesibles", "Reemplazan la educación tradicional", "Eliminaron la brecha digital"],
+        correct: 1,
+        explanation: "Las redes y medios difunden el conocimiento a públicos amplios, aunque con riesgos de desinformación y simplificación excesiva."
+    },
+    {
+        question: "¿Qué se entiende por brecha digital según el documento?",
+        options: ["Diferencias en el acceso, uso y aprovechamiento de tecnologías digitales", "Un problema exclusivo de los países desarrollados", "Falta de contenidos en redes sociales", "Un fenómeno sin consecuencias sociales"],
+        correct: 0,
+        explanation: "El texto define la brecha digital como desigualdad en infraestructura, recursos, educación y alfabetización digital."
+    },
+    {
+        question: "¿Cuál de los siguientes factores no es causa directa de la brecha digital?",
+        options: ["Limitaciones económicas", "Nivel educativo bajo", "Interés político ciudadano", "Falta de infraestructura tecnológica"],
+        correct: 2,
+        explanation: "Las causas señaladas son materiales, educativas y tecnológicas; la participación política es una consecuencia, no una causa."
+    },
+    {
+        question: "¿Qué consecuencias produce la brecha digital?",
+        options: ["Mayor participación ciudadana en política", "Exclusión de sectores vulnerables y desigualdad en oportunidades laborales y educativas", "Reducción de desigualdades sociales", "Aumento de la productividad rural"],
+        correct: 1,
+        explanation: "La falta de acceso digital limita la educación, el empleo y la participación social, profundizando desigualdades existentes."
+    },
+    {
+        question: "¿Qué diferencia a la brecha informacional de la brecha digital?",
+        options: ["Se centra en la interpretación crítica de la información, no solo en el acceso", "Está relacionada únicamente con el costo del internet", "Es un fenómeno exclusivamente rural", "No tiene impacto social"],
+        correct: 0,
+        explanation: "La brecha informacional implica la capacidad de analizar y usar información de forma significativa, incluso si hay conexión digital."
+    },
+    {
+        question: "¿Qué medidas propone el documento para reducir las brechas digitales e informacionales?",
+        options: ["Invertir solo en infraestructura", "Combinar conectividad, educación digital y programas de inclusión tecnológica", "Limitar el uso de redes sociales", "Depender únicamente del sector privado"],
+        correct: 1,
+        explanation: "La solución requiere políticas integrales con infraestructura, alfabetización mediática y participación social."
+    },
+    {
+        question: "¿Qué promueve el movimiento de acceso abierto en la ciencia?",
+        options: ["El cobro por suscripciones académicas", "La disponibilidad libre y gratuita de resultados científicos", "El secreto profesional de los investigadores", "El cierre de bases de datos públicas"],
+        correct: 1,
+        explanation: "El acceso abierto busca democratizar el conocimiento mediante revistas y bases de datos libres."
+    },
+    {
+        question: "¿Cuál es el objetivo de los datos abiertos?",
+        options: ["Restringir el uso de información pública", "Permitir que cualquier persona use y redistribuya información para innovación y control ciudadano", "Vender bases de datos privadas", "Eliminar la transparencia gubernamental"],
+        correct: 1,
+        explanation: "Los datos abiertos fomentan la transparencia, la innovación y la participación pública."
+    },
+    {
+        question: "¿Cuál de los siguientes es un desafío del acceso abierto mencionado en el texto?",
+        options: ["Su sostenibilidad económica y las barreras técnicas", "La falta de interés social", "La competencia entre universidades", "El exceso de control estatal"],
+        correct: 0,
+        explanation: "Mantener plataformas abiertas requiere recursos y capacitación; además, no todo contenido libre cumple estándares científico."
+    },
+    {
+        question: "En el caso de los estudiantes rurales en Jujuy durante la pandemia, ¿cuál fue una de las consecuencias principales de la brecha digital?",
+        options: ["Aumento de la matrícula universitaria", "Deserción escolar y desigualdad educativa", "Acceso pleno a plataformas educativas", "Mejora en la infraestructura tecnológica"],
+        correct: 1,
+        explanation: "La falta de conexión y dispositivos dejó a muchos estudiantes rurales fuera del sistema educativo durante la pandemia."
+    },
+    {
+        question: "¿Qué estrategias se implementaron para mitigar la brecha digital en ese contexto?",
+        options: ["Transmisión de contenidos educativos por radio y entrega de cuadernillos", "Suspensión de clases en todo el país", "Distribución de dispositivos de última generación", "Acceso ilimitado a redes sociales"],
+        correct: 0,
+        explanation: "Estas medidas buscaron garantizar el acceso a la educación en zonas sin internet, adaptando medios tradicionales."
+    },
+    {
+        question: "¿Qué actores deben intervenir para reducir la brecha digital, según el texto?",
+        options: ["Solo el sector privado", "Gobiernos, universidades, ONGs y empresas tecnológicas", "Exclusivamente las escuelas rurales", "Los usuarios individuales"],
+        correct: 1,
+        explanation: "Reducir la brecha requiere acción coordinada entre múltiples sectores con políticas inclusivas y sostenibles."
+    },
+    {
+        question: "¿Qué enseñanza deja el caso de Jujuy respecto a la relación entre tecnología y educación?",
+        options: ["Que la tecnología es suficiente para resolver desigualdades", "Que la infraestructura tecnológica debe considerarse parte del derecho a la educación", "Que los medios digitales son irrelevantes para la enseñanza", "Que las zonas rurales no requieren conectividad"],
+        correct: 1,
+        explanation: "El caso muestra que la falta de acceso digital vulnera derechos fundamentales y limita la equidad educativa."
+    },
+    {
+        question: "¿Cuál es el principal propósito de la democratización del conocimiento?",
+        options: ["Privatizar el acceso a la información científica", "Asegurar que el conocimiento sea un bien común y accesible para todos", "Proteger el conocimiento de los sectores no académicos", "Limitar el acceso a publicaciones científicas"],
+        correct: 1,
+        explanation: "El texto plantea que la democratización del conocimiento implica garantizar igualdad de acceso y apropiación social de los saberes."
+    },
+    {
+        question: "¿Qué diferencia a la difusión formal del conocimiento de la socialización?",
+        options: ["La difusión formal requiere revisión científica; la socialización busca la comprensión y uso ciudadano", "Ambas son idénticas", "La difusión formal se da solo en redes sociales", "La socialización es exclusiva del ámbito universitario"],
+        correct: 0,
+        explanation: "La difusión usa canales validados (revistas, patentes), mientras que la socialización implica apropiación social en espacios cotidianos."
+    },
+    {
+        question: "¿Por qué la socialización del conocimiento es clave para la equidad social?",
+        options: ["Porque convierte el conocimiento en herramienta de empoderamiento social", "Porque reduce la inversión educativa", "Porque reemplaza la ciencia básica", "Porque elimina los medios de comunicación"],
+        correct: 0,
+        explanation: "La socialización permite que distintos sectores, especialmente los más vulnerables, usen el conocimiento para resolver problemas y participar activamente."
+    },
+    {
+        question: "¿Cuál es un riesgo de la socialización del conocimiento a través de redes sociales?",
+        options: ["Fomentar el pensamiento crítico", "Ampliar el acceso al saber científico", "Propagar desinformación y simplificación excesiva", "Promover la cooperación internacional"],
+        correct: 2,
+        explanation: "El texto advierte que, aunque las redes amplían el acceso, también pueden distorsionar o banalizar el contenido científico si no hay verificación adecuada."
+    },
+    {
+        question: "¿Cuál de las siguientes consecuencias no pertenece a la brecha digital?",
+        options: ["Limitación de oportunidades laborales", "Exclusión social y educativa", "Incremento de la participación política digital", "Desigualdad en acceso a información crítica"],
+        correct: 2,
+        explanation: "La brecha digital, al restringir el acceso tecnológico, reduce la participación ciudadana y no la aumenta."
+    },
+    {
+        question: "¿Cuál es una causa estructural de la brecha informacional?",
+        options: ["La falta de pensamiento crítico y habilidades para evaluar la información", "La sobreoferta de universidades públicas", "La censura política a los medios", "La ausencia de contenidos científicos"],
+        correct: 0,
+        explanation: "La brecha informacional implica tener acceso a datos sin poder interpretarlos o utilizarlos adecuadamente."
+    },
+    {
+        question: "¿Qué estrategia contribuye a cerrar la brecha digital según el texto?",
+        options: ["Programas de alfabetización digital y conectividad pública", "Sustituir las escuelas por plataformas digitales", "Fomentar el consumo tecnológico sin educación", "Centralizar la información en el sector privado"],
+        correct: 0,
+        explanation: "El documento propone combinar infraestructura tecnológica con formación digital y políticas inclusivas."
+    },
+    {
+        question: "¿Cuál de los siguientes ejemplos representa una iniciativa de acceso abierto?",
+        options: ["Una revista científica gratuita y revisada por pares", "Una base de datos privada con acceso pago", "Un software comercial cerrado", "Una red social sin control de calidad"],
+        correct: 0,
+        explanation: "El acceso abierto busca difundir resultados científicos sin barreras económicas ni legales."
+    },
+    {
+        question: "¿Cómo promueven los datos abiertos la participación ciudadana?",
+        options: ["Facilitando el control social y la transparencia de la información pública", "Ocultando información sensible", "Limitando el acceso a usuarios expertos", "Reemplazando la labor de los gobiernos"],
+        correct: 0,
+        explanation: "Los datos abiertos fortalecen la innovación, la transparencia y el compromiso cívico al permitir el libre acceso a información pública."
+    },
+    {
+        question: "¿Cuál es uno de los principales desafíos del movimiento de datos abiertos?",
+        options: ["La sostenibilidad económica y las barreras culturales", "El exceso de inversión pública", "La falta de interés en la transparencia", "La competencia entre gobiernos"],
+        correct: 0,
+        explanation: "Mantener plataformas abiertas requiere recursos, y aún persisten resistencias culturales a compartir el conocimiento libremente."
+    },
+    {
+        question: "Según el caso de estudiantes rurales en Jujuy durante la pandemia, ¿qué enseñanza deja sobre la equidad digital?",
+        options: ["Que la conectividad debe ser considerada un derecho educativo", "Que la educación presencial no requiere tecnología", "Que los medios digitales aumentan la desigualdad", "Que las comunidades rurales deben prescindir de internet"],
+        correct: 0,
+        explanation: "El caso evidencia que la falta de infraestructura tecnológica vulnera derechos básicos y amplía brechas sociales y educativas."
+    },
+    // Preguntas CTS - Protección de invenciones y patentes
+    {
+        question: "¿Qué es una patente según el artículo?",
+        options: ["Un documento que permite publicar artículos científicos gratuitamente", "Un título de propiedad industrial que otorga al titular el derecho de impedir que terceros usen la invención sin consentimiento", "Un tipo de modelo de negocio para vender tecnologías", "Un mecanismo exclusivo para los procedimientos quirúrgicos"],
+        correct: 1,
+        explanation: "El artículo define la patente como un título de propiedad industrial que permite al titular actuar frente a terceros que copien, fabriquen, importen o vendan el producto o procedimiento protegido sin su consentimiento."
+    },
+    {
+        question: "¿Por qué la redacción de la patente es especialmente importante?",
+        options: ["Porque es un trámite administrativo sin contenido técnico", "Porque el documento de patente incluye información tecnológica que normalmente no se publica en otros medios, y debe describir el problema técnico y la solución", "Porque solo basta con presentar un dibujo para que sea válida", "Porque no exige reivindicaciones claras del alcance del invento"],
+        correct: 1,
+        explanation: "El artículo señala que la memoria descriptiva de la patente explica claramente la tecnología existente, el problema técnico y la forma en que la nueva tecnología lo resuelve, e incluye reivindicaciones, dibujos y detalles que no se suelen divulgar en otros tipos de publicaciones."
+    },
+    {
+        question: "¿Cuál es una de las fases del procedimiento de tramitación de patentes que se menciona en el artículo?",
+        options: ["Solo generación de la idea y comercialización inmediata", "Investigación y desarrollo → Protección de los resultados → Lanzamiento al mercado", "Solo redacción del artículo científico y publicación", "Eliminación del informe de búsqueda para acelerar el trámite"],
+        correct: 1,
+        explanation: "El artículo describe las fases, entre ellas: generación de la idea, anteproyecto, inversión, I + D, protección de resultados (solicitud de patente) y lanzamiento al mercado."
+    },
+    {
+        question: "¿Qué significan las siglas CIP/IPC y por qué son relevantes?",
+        options: ["Son códigos para autorizar la patente solo en un país", "Son sistemas de clasificación internacional de la tecnología (Clasificación Internacional de Patentes) que permiten organizar y codificar las invenciones por sectores técnicos", "Representan un tipo de investigación académica sin aplicación práctica", "Son los nombres de las oficinas de patentes en España"],
+        correct: 1,
+        explanation: "El artículo explica que la CIP (o IPC en inglés) clasifica la tecnología en secciones, clases, subclases y grupos, lo cual facilita la búsqueda y organización de documentos de patente."
+    },
+    {
+        question: "¿Cuál es el requisito no mencionado en el artículo para que una invención sea patentable?",
+        options: ["Novedad", "Actividad inventiva", "Aplicación industrial", "Rentabilidad garantizada"],
+        correct: 3,
+        explanation: "El artículo detalla que para patentarse una invención debe tener novedad, actividad inventiva y ser susceptible de aplicación industrial; no exige que ya se haya probado que será rentable."
+    },
+    {
+        question: "¿Qué distingue a un 'modelo de utilidad' frente a una 'patente' según el artículo?",
+        options: ["No existe diferencia formal", "El modelo de utilidad está restringido a productos o aparatos técnicos, y su vida útil es menor que la de una patente", "La patente solo protege ideas abstractas sin aplicación", "El modelo de utilidad permite procedimientos, mientras la patente no"],
+        correct: 1,
+        explanation: "El artículo menciona que a diferencia de las patentes, los modelos de utilidad se limitan a productos/dispositivos técnicos (excluyendo procedimientos), tienen una duración máxima más corta y tasas menores."
+    },
+    {
+        question: "¿Dónde pueden los investigadores localizar patentes como fuentes de información tecnológica?",
+        options: ["Solo en los archivos físicos de la universidad", "En bases de datos especializadas como Invenes, Google Patents, Espacenet, Lens.org, entre otras", "En cualquier blog sin validación", "Únicamente a través de revistas científicas clásicas"],
+        correct: 1,
+        explanation: "El artículo enumera varias bases de datos gratuitas o con acceso institucional para buscar patentes y destaca su utilidad como fuente de información tecnológica."
+    },
+    {
+        question: "¿Qué implicación tiene que la patente 'se haga pública para información general' según el artículo?",
+        options: ["Que cualquier persona puede usar la invención sin permiso", "Que la invención queda al descubierto, lo que permite que otros construyan sobre ella, pero también permite al titular proteger sus derechos frente a terceros", "Que pierde todo valor comercial", "Que ya no puede protegerse jurídicamente"],
+        correct: 1,
+        explanation: "El artículo señala que al concederse la patente el titular puede impedir su uso sin consentimiento, y al mismo tiempo la memoria descriptiva se hace pública, lo que enriquece la difusión tecnológica."
+    },
+    {
+        question: "¿Cuál es una de las funciones estratégicas de las patentes para una universidad o centro de investigación?",
+        options: ["Impedir totalmente la transferencia tecnológica", "Servir como indicador de innovación, facilitar la transferencia de tecnología y generar valor para la institución", "Eliminar la necesidad de publicar resultados", "Incrementar el secretismo científico"],
+        correct: 1,
+        explanation: "Aunque el artículo no lo dice de forma literal al solo hablar de patentes, el contexto de 'patentes como fuente de información tecnológica' y su uso en iniciativas de transferencia sugiere esta función estratégica."
+    },
+    {
+        question: "¿Qué aspecto legal se menciona en relación con el derecho de prioridad de las patentes?",
+        options: ["Que no existe fuera de España", "Que permite esperar hasta doce meses después de una solicitud para presentar la misma invención en otros países, bajo el Convenio de París", "Que solo aplica a universidades", "Que tienen carácter automático sin trámite"],
+        correct: 1,
+        explanation: "El artículo afirma que el derecho de prioridad proporciona al que presenta una primera solicitud en un país la posibilidad de presentar en otros en un plazo de hasta doce meses para la misma invención, según el Convenio de París para la Protección de la Propiedad Industrial."
+    },
+    // Preguntas CTS - Streaming de ciencia, comunicación y participación pública
+    {
+        question: "¿Cuál fue el motivo de la expedición científica que se transmitió en vivo por CONICET y el Schmidt Ocean Institute?",
+        options: ["Explorar restos de naufragios históricos en el Atlántico", "Estudiar los sistemas de cañones submarinos frente a las costas de Río Negro y Chubut", "Evaluar la pesca comercial de especies superficiales", "Realizar turismo científico privado"],
+        correct: 1,
+        explanation: "El artículo explica que la misión se propone investigar el sistema de cañones Bahía Blanca (frente a Viedma, Río Negro) y luego los cañones Almirante Brown frente a Chubut."
+    },
+    {
+        question: "Según el artículo, ¿qué antecedente de éxito motivó esta nueva transmisión científica?",
+        options: ["Una campaña de pesca deportiva con gran audiencia", "Una expedición previa al cañón submarino de Mar del Plata que batió récords de visualización", "El desarrollo de un videojuego educativo sobre el océano", "La publicación de un documental en televisión por cable"],
+        correct: 1,
+        explanation: "Se menciona que la campaña 'Talud Continental IV' en el cañón de Mar del Plata logró cerca de 18 millones de visualizaciones en tres semanas."
+    },
+    {
+        question: "¿Qué aspecto comunicativo del streaming se destaca como innovador en la nota?",
+        options: ["Que sólo lo pudieron ver técnicos especializados", "Que permitió al público general conectarse en simultáneo a la transmisión científica submarina", "Que fue exclusiva para universidades y centros de investigación", "Que se realizó en formato de podcast sin imagen"],
+        correct: 1,
+        explanation: "El artículo señala que más de 60 000 personas se conectaron en simultáneo a una inmersión, lo cual evidencia la apertura al público general."
+    },
+    {
+        question: "¿Cuál fue uno de los objetivos científicos de la expedición, según la oceanógrafa Silvia Romero?",
+        options: ["Medir la contaminación lumínica en la superficie del océano", "Analizar cómo la Corriente de Malvinas interactúa con el margen continental y los cañones", "Crear un nuevo parque de investigación turística submarina", "Instalar cables de fibra óptica para internet en el fondo marino"],
+        correct: 1,
+        explanation: "Romero explicó que los cañones submarinos 'que inciden sobre el margen superior' podrían facilitar el intercambio de aguas de la Corriente de Malvinas."
+    },
+    {
+        question: "Según la nota, ¿qué herramienta tecnológica significativa se utilizará para la expedición?",
+        options: ["Drones ligeros aéreos", "Una boya oceanográfica equipada con sensores que quedará fija desde superficie hasta el fondo", "Un telescopio submarino para observar estrellas", "Un robot limpiador de microplásticos autónomo sin transmisión en vivo"],
+        correct: 1,
+        explanation: "Se menciona que instalarán una boya con sensores meteorológicos y también boyas derivantes con GPS para registrar corrientes, temperatura y otros parámetros."
+    },
+    {
+        question: "¿Qué dimensión social del conocimiento científico destaca la nota sobre esta transmisión?",
+        options: ["Que la transmisión fue privatizada", "Que la difusión masiva permitió que el público general participara en tiempo real del proceso científico", "Que se redujo la educación científica a textos técnicos", "Que la ciencia ya no necesita comunicar sus resultados"],
+        correct: 1,
+        explanation: "El artículo resalta que la transmisión en vivo mostró a la sociedad la 'maravilla del océano marino' y permitió una experiencia de ciencia compartida."
+    },
+    {
+        question: "¿Cuál fue un resultado concreto del éxito de la transmisión previa que se menciona?",
+        options: ["Que sólo se recogieron muestras sin imágenes", "Descubrimiento de más de cuarenta nuevas especies en la expedición anterior", "Que no atrajo audiencia", "Que la expedición tuvo que cancelar la transmisión"],
+        correct: 1,
+        explanation: "En la expedición al cañón de Mar del Plata, los investigadores sospechan haber descubierto más de cuarenta nuevas especies."
+    },
+    {
+        question: "¿Por qué es significativo para la educación y divulgación científica esta experiencia de streaming?",
+        options: ["Porque reemplaza completamente a la investigación in situ", "Porque convierte la expedición científica en un evento accesible para todos y genera interés público por la ciencia", "Porque oculta los procesos técnicos al público", "Porque limita el acceso solo a especialistas"],
+        correct: 1,
+        explanation: "La cobertura en vivo permitió que miles de personas se conectaran y aprendieran sobre biología marina y oceanografía, lo cual tiene valor educativo."
+    },
+    {
+        question: "¿Qué desafío o consideración ética/social se podría inferir de la nota sobre este tipo de transmisiones científicas?",
+        options: ["Que no hay necesidad de transparencia científica", "Que la transmisión masiva puede generar expectativas exageradas o malinterpretaciones si no hay contexto adecuado", "Que la transmisión debe mantenerse siempre en inglés", "Que los científicos deben trabajar en aislamiento"],
+        correct: 1,
+        explanation: "Aunque el artículo no aborda este punto de forma extensa, la masiva audiencia y el carácter divulgativo implican que la comunicación científica debe ser manejada con cuidado para evitar simplificaciones inexactas o promesas infundadas."
+    },
+    {
+        question: "¿En qué sentido esta experiencia puede transformar la percepción pública de la ciencia?",
+        options: ["Mostrando que la ciencia sólo ocurre en laboratorios cerrados", "Evidenciando que la ciencia puede ser visible, participativa y conectada al público, reduciendo la distancia entre investigadores y sociedad", "Generando que la ciencia sea inaccesible", "Eliminando la necesidad de periodistas científicos"],
+        correct: 1,
+        explanation: "La transmisión en vivo desde expediciones científicas convierte la investigación en algo que la sociedad puede 'ver' y 'vivir', fortaleciendo el vínculo entre ciencia y ciudadanía."
+    },
+    // Preguntas CTS - Extensión Universitaria y Compromiso Social
+    {
+        question: "¿Cuál es el objetivo central de la extensión universitaria, según el artículo?",
+        options: ["Promover únicamente la investigación científica", "Desarrollar vínculos entre la universidad y la comunidad, aportando al bienestar social", "Incrementar la matrícula estudiantil", "Generar ingresos económicos para la institución"],
+        correct: 1,
+        explanation: "La extensión universitaria se entiende como un compromiso social mediante el cual la universidad aplica sus conocimientos y recursos al servicio de la sociedad, fortaleciendo el lazo entre la academia y la comunidad."
+    },
+    {
+        question: "¿Cuáles son los tres ejes principales del programa UBA en Acción?",
+        options: ["Educación formal, investigación científica y desarrollo urbano", "Desarrollo comunal, educación no formal y atención primaria de la salud", "Comunicación institucional, extensión cultural y emprendimientos", "Tecnología, innovación y empleo joven"],
+        correct: 1,
+        explanation: "El artículo detalla que 'UBA en Acción' articula proyectos interdisciplinarios centrados en estas tres áreas, buscando asistir a comunidades vulnerables en distintos puntos del país."
+    },
+    {
+        question: "¿Qué cantidad de personas recibieron atención a través de UBA en Acción durante 2023?",
+        options: ["Aproximadamente 500 por semana", "Cerca de 2500 personas por semana", "Unas 100 por mes", "Más de 10 000 por día"],
+        correct: 1,
+        explanation: "La nota indica que, en 2023, el principal programa de extensión de la UBA brindó atención integral a unas 2500 personas por semana, evidenciando su impacto social."
+    },
+    {
+        question: "¿Cuál de los siguientes servicios se incluye en las jornadas de UBA en Acción?",
+        options: ["Clases de posgrado aranceladas", "Atención odontológica, médica y asesoramiento jurídico", "Cursos virtuales de idiomas", "Evaluaciones académicas"],
+        correct: 1,
+        explanation: "Las actividades abarcan asistencia sanitaria, servicios veterinarios, análisis de sangre, confección de lentes, asesoramiento contable y jurídico, entre otros."
+    },
+    {
+        question: "¿Qué papel cumplen los docentes y estudiantes en los programas de extensión?",
+        options: ["Son observadores externos sin participación directa", "Son actores centrales que articulan proyectos interdisciplinarios al servicio de la comunidad", "Solo participan como coordinadores administrativos", "Solo se dedican a la investigación científica"],
+        correct: 1,
+        explanation: "El artículo enfatiza que docentes, investigadores y estudiantes colaboran activamente en los programas, aplicando sus saberes en contextos reales de necesidad social."
+    },
+    {
+        question: "¿Qué actividades realiza la Facultad de Odontología dentro de UBA en Acción?",
+        options: ["Capacitación docente", "Atención odontológica gratuita y campañas de prevención en comunidades rurales", "Cursos de posgrado sobre odontología digital", "Campañas de recaudación privada"],
+        correct: 1,
+        explanation: "El texto menciona que la facultad ofrece atención clínica, promoción y prevención de la salud en comunidades vulnerables de varias provincias argentinas."
+    },
+    {
+        question: "Además de UBA en Acción, ¿qué otros programas de extensión menciona el artículo?",
+        options: ["UBANEX, Universidad y Discapacidad, UBA Verde y Prácticas Sociales Educativas", "UBATEC, Innovar UBA y Conectar UBA", "UBA Digital y UBA Global", "Extensión Económica y UBA Cultural"],
+        correct: 0,
+        explanation: "El artículo destaca la diversidad de programas de extensión que buscan inclusión, sostenibilidad ambiental y formación integral."
+    },
+    {
+        question: "¿Qué objetivo tiene el programa UBANEX?",
+        options: ["Financiar becas internacionales", "Fortalecer la vinculación de la universidad con la sociedad poniendo el conocimiento a disposición de la comunidad", "Dictar cursos en línea", "Promover la competencia entre facultades"],
+        correct: 1,
+        explanation: "UBANEX busca que los saberes universitarios tengan aplicación directa en la resolución de problemáticas sociales."
+    },
+    {
+        question: "¿Qué finalidad persigue el programa Universidad y Discapacidad?",
+        options: ["Crear carreras específicas para personas con discapacidad", "Promover la inclusión plena y eliminar formas de discriminación", "Sustituir la educación presencial por virtual", "Limitar la matrícula estudiantil"],
+        correct: 1,
+        explanation: "Este programa fomenta la igualdad de oportunidades y la accesibilidad en el ámbito universitario."
+    },
+    {
+        question: "¿Qué valores representa la educación pública universitaria según el texto?",
+        options: ["Autonomía, gratuidad, inclusión social y compromiso con el entorno", "Competencia, financiamiento privado y exclusividad", "Neutralidad, elitismo y enfoque técnico", "Rentabilidad, meritocracia y eficiencia empresarial"],
+        correct: 0,
+        explanation: "El artículo concluye resaltando estos valores como pilares de la universidad pública argentina, junto con la excelencia académica y la investigación científica."
+    },
+    {
+        question: "¿Cuál es el objetivo de las Prácticas Sociales Educativas (PSE)?",
+        options: ["Incrementar la carga horaria de los estudiantes", "Integrar formación académica con compromiso social mediante intervenciones en contextos vulnerables", "Fomentar la competencia entre estudiantes", "Sustituir las prácticas profesionales obligatorias"],
+        correct: 1,
+        explanation: "Las PSE articulan saberes curriculares con experiencias de participación ciudadana y trabajo comunitario."
+    },
+    {
+        question: "¿Cuál es el sentido de la extensión universitaria en la UBA, según el artículo?",
+        options: ["Aislar la universidad de las problemáticas sociales", "Tender puentes entre la academia y la comunidad para lograr equidad y ascenso social", "Sustituir la docencia y la investigación", "Priorizar los intereses económicos sobre los sociales"],
+        correct: 1,
+        explanation: "La extensión universitaria se plantea como el medio mediante el cual la universidad contribuye al desarrollo y justicia social, fortaleciendo el vínculo con la sociedad argentina."
+    },
+    // Preguntas CTS - SciELO: Biblioteca Científica Electrónica
+    {
+        question: "¿Qué significa SciELO?",
+        options: ["Science Electronic Library Organization", "Scientific Electronic Library Online", "Scientific Evaluation Latin Open", "Science Evaluation Library Online"],
+        correct: 1,
+        explanation: "El texto define SciELO como una biblioteca electrónica iberoamericana que reúne revistas científicas en texto completo y acceso abierto, bajo ese nombre oficial."
+    },
+    {
+        question: "¿Cuál es el propósito principal del proyecto SciELO?",
+        options: ["Promover la comercialización de revistas científicas internacionales", "Facilitar la visibilidad, acceso y evaluación de la producción científica en países en desarrollo", "Centralizar la investigación europea", "Vender publicaciones académicas en formato digital"],
+        correct: 1,
+        explanation: "El modelo busca recuperar la ciencia regional y otorgar visibilidad a producciones científicas que tradicionalmente no son reconocidas por los grandes circuitos internacionales."
+    },
+    {
+        question: "¿En qué año se inició el proyecto SciELO y con qué organismo?",
+        options: ["En 1997, impulsado por BIREME con financiamiento de la FAPESP", "En 2000, promovido por la UNESCO", "En 1995, desarrollado por la ONU y la CEPAL", "En 2002, bajo gestión del CNPq únicamente"],
+        correct: 0,
+        explanation: "SciELO nació como iniciativa de BIREME (Centro Latinoamericano y del Caribe de Información en Ciencias de la Salud) con apoyo económico de la Fundación de Apoyo a la Investigación del Estado de São Paulo."
+    },
+    {
+        question: "¿Qué organismo se incorporó al proyecto SciELO en 2002?",
+        options: ["La OMS", "El CNPq (Conselho Nacional de Desenvolvimento Científico e Tecnológico)", "La UNESCO", "El BID"],
+        correct: 1,
+        explanation: "El texto menciona que, a partir de 2002, el CNPq se suma al emprendimiento junto con BIREME y FAPESP, fortaleciendo su respaldo institucional."
+    },
+    {
+        question: "¿Qué indicador ofrece SciELO como herramienta de evaluación científica?",
+        options: ["Tasa de publicación anual", "Factor de impacto y estadísticas de uso", "Número de patentes registradas", "Ranking de universidades"],
+        correct: 1,
+        explanation: "SciELO proporciona indicadores de citación y consultas, permitiendo medir la visibilidad y relevancia de las revistas científicas incluidas."
+    },
+    {
+        question: "¿En qué año se incorporó Argentina al proyecto SciELO y cuándo obtuvo su certificación oficial?",
+        options: ["Se incorporó en 2000 y se certificó en 2002", "Se incorporó en 2005 y se certificó en 2006", "Se incorporó en 2010 y se certificó en 2012", "Se incorporó en 1998 y se certificó en 1999"],
+        correct: 1,
+        explanation: "Argentina se integró en junio de 2005 y en octubre de 2006 obtuvo la certificación para operar oficialmente como sitio nacional de SciELO."
+    },
+    {
+        question: "¿Qué institución argentina gestiona el portal SciELO-Argentina?",
+        options: ["El Ministerio de Educación", "El Centro Argentino de Información Científica y Tecnológica (CAICYT), dependiente del CONICET", "La Biblioteca Nacional", "El Consejo Interuniversitario Nacional (CIN)"],
+        correct: 1,
+        explanation: "En Argentina, el proyecto se articula como parte de las políticas científicas del CONICET, gestionado a través del CAICYT."
+    },
+    {
+        question: "¿Cuál es la misión de SciELO?",
+        options: ["Garantizar el acceso restringido a publicaciones científicas", "Propiciar el derecho al acceso libre, gratuito y en texto completo a la información científica", "Promover la comercialización editorial de revistas académicas", "Sustituir las bibliotecas físicas universitarias"],
+        correct: 1,
+        explanation: "La misión de SciELO reafirma el compromiso de ofrecer acceso abierto al conocimiento científico con excelencia académica y editorial."
+    },
+    {
+        question: "¿Qué criterios de calidad utiliza SciELO-Argentina para evaluar sus revistas?",
+        options: ["Reputación mediática y número de descargas", "Criterios de Excelencia de LATINDEX – Nivel 1 / CATÁLOGO Latindex", "Evaluación de lectores y suscriptores", "Opinión del público general"],
+        correct: 1,
+        explanation: "El CAICYT evalúa periódicamente la calidad editorial de las revistas según los estándares internacionales de LATINDEX, garantizando su excelencia."
+    },
+    {
+        question: "¿Cómo contribuye SciELO al desarrollo científico de la región?",
+        options: ["Centralizando la investigación en Brasil", "Recuperando y visibilizando la ciencia de los países en desarrollo que no es incluida en los grandes circuitos internacionales", "Sustituyendo los procesos de publicación internacionales", "Limita la participación de investigadores locales"],
+        correct: 1,
+        explanation: "SciELO amplía el acceso y la presencia global de la ciencia latinoamericana, fortaleciendo la cooperación y el reconocimiento de las investigaciones regionales."
+    },
+    {
+        question: "¿Qué característica hace del portal SciELO un recurso accesible y práctico?",
+        options: ["Solo permite búsquedas por país", "Posee una interfaz amigable con opciones de búsqueda por títulos, autores o materias, con resultados imprimibles y descargables en HTML o ISO 2709", "Exige registro pago para descargar artículos", "No brinda información sobre cómo citar los artículos"],
+        correct: 1,
+        explanation: "El portal SciELO facilita la búsqueda y uso del conocimiento científico mediante herramientas digitales sencillas y formatos accesibles (HTML y PDF)."
+    },
+    {
+        question: "¿Qué función adicional cumple el formato HTML dentro del portal SciELO?",
+        options: ["Permite editar los artículos publicados", "Ofrece información sobre cómo citar correctamente los artículos", "Contiene publicidad académica", "Limita la descarga del texto completo"],
+        correct: 1,
+        explanation: "Debajo de cada referencia en formato HTML, SciELO incluye las normas para citar el artículo, favoreciendo buenas prácticas académicas y bibliográficas."
     }
-];
 
 // Usar todas las preguntas disponibles
 const currentQuestions = questions;
@@ -658,16 +1196,16 @@ const currentQuestions = questions;
                 <div class="timer-badge rounded-2xl px-6 py-3 text-white shadow-lg">
                     <div class="flex items-center space-x-2">
                         <span class="text-lg">⏱️</span>
-                        <span id="timer" class="text-lg font-mono font-bold">20:00</span>
+                        <span id="timer" class="text-lg font-mono font-bold">30:00</span>
                     </div>
                 </div>
                 <div class="flex-1 mx-6">
                     <div class="flex justify-between text-sm text-gray-600 mb-2">
-                        <span id="progress-text">Pregunta 1 de 1</span>
-                        <span id="progress-percentage">100%</span>
+                        <span id="progress-text">Pregunta 1 de 139</span>
+                        <span id="progress-percentage">1%</span>
                     </div>
                     <div class="w-full bg-white/30 rounded-full h-3 overflow-hidden">
-                        <div id="progress-bar" class="progress-bar h-3 rounded-full" style="width: 100%"></div>
+                        <div id="progress-bar" class="progress-bar h-3 rounded-full" style="width: 1%"></div>
                     </div>
                 </div>
             </div>
@@ -695,7 +1233,7 @@ const currentQuestions = questions;
     <script define:vars={{ questions }}>
         let currentQuestionIndex = 0;
         let score = 0;
-        let timeLeft = 1200; // 20 minutos para todas las preguntas
+        let timeLeft = 1800; // 30 minutos para todas las preguntas
         let timerInterval;
         let answered = false;
         let correctAnswers = 0;

@@ -4,6 +4,30 @@ const { score, total, percentage } = Astro.url.searchParams;
 const numScore = parseInt(score) || 0;
 const numTotal = parseInt(total) || 0;
 const numPercentage = parseInt(percentage) || 0;
+
+// Calcular nota final (0-20 puntos)
+const notaFinal = Math.round((numScore / numTotal) * 20);
+const aprobado = notaFinal >= 12; // Nota mínima para aprobar: 12/20
+
+// Determinar mención según la nota
+let mencion = '';
+let mencionColor = '';
+if (notaFinal >= 18) {
+    mencion = 'Excelente';
+    mencionColor = 'text-green-600';
+} else if (notaFinal >= 15) {
+    mencion = 'Muy Bueno';
+    mencionColor = 'text-blue-600';
+} else if (notaFinal >= 12) {
+    mencion = 'Bueno';
+    mencionColor = 'text-yellow-600';
+} else if (notaFinal >= 8) {
+    mencion = 'Regular';
+    mencionColor = 'text-orange-600';
+} else {
+    mencion = 'Insuficiente';
+    mencionColor = 'text-red-600';
+}
 ---
 
 <html lang="es">
@@ -21,6 +45,18 @@ const numPercentage = parseInt(percentage) || 0;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
+        .nota-final {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .aprobado-badge {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+        }
+        .desaprobado-badge {
+            background: linear-gradient(135deg, #f44336, #da190b);
+        }
     </style>
 </head>
 <body class="result-container flex items-center justify-center p-6">
@@ -33,6 +69,23 @@ const numPercentage = parseInt(percentage) || 0;
             <p class="text-gray-600">Trabajo, Tecnología y Sociedad</p>
         </div>
 
+        <!-- Estado de Aprobación -->
+        <div class="mb-6">
+            <div class={`inline-block px-6 py-3 rounded-full text-white font-bold text-lg ${aprobado ? 'aprobado-badge' : 'desaprobado-badge'}`}>
+                {aprobado ? '✅ APROBADO' : '❌ DESAPROBADO'}
+            </div>
+        </div>
+
+        <!-- Nota Final -->
+        <div class="mb-8">
+            <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-2xl border-2 border-purple-200">
+                <div class="text-sm text-gray-600 mb-2">NOTA FINAL</div>
+                <div class="nota-final text-6xl font-bold mb-2">{notaFinal}/20</div>
+                <div class={`text-xl font-semibold ${mencionColor}`}>{mencion}</div>
+            </div>
+        </div>
+
+        <!-- Estadísticas -->
         <div class="grid grid-cols-3 gap-4 mb-8">
             <div class="bg-blue-50 p-4 rounded-xl">
                 <div class="text-2xl font-bold text-blue-600">{numScore}</div>
@@ -44,34 +97,26 @@ const numPercentage = parseInt(percentage) || 0;
             </div>
             <div class="bg-purple-50 p-4 rounded-xl">
                 <div class="text-2xl font-bold text-purple-600">{numScore}/{numTotal}</div>
-                <div class="text-sm text-gray-600">Respuestas</div>
+                <div class="text-sm text-gray-600">Correctas</div>
             </div>
         </div>
 
+        <!-- Mensaje de resultado -->
         <div class="mb-8">
-            {numPercentage >= 90 ? (
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg">
-                    <div class="font-semibold">🎯 ¡Excelente trabajo!</div>
-                    <div class="text-sm">Dominas completamente el tema</div>
-                </div>
-            ) : numPercentage >= 70 ? (
-                <div class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded-lg">
-                    <div class="font-semibold">👍 ¡Buen trabajo!</div>
-                    <div class="text-sm">Tienes un buen conocimiento del tema</div>
-                </div>
-            ) : numPercentage >= 50 ? (
-                <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded-lg">
-                    <div class="font-semibold">📚 ¡Sigue practicando!</div>
-                    <div class="text-sm">Puedes mejorar con un poco más de estudio</div>
+            {aprobado ? (
+                <div class="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg">
+                    <div class="font-semibold text-lg mb-2">🎯 ¡Felicitaciones! Has aprobado</div>
+                    <div class="text-sm">Has demostrado un conocimiento sólido de Trabajo, Tecnología y Sociedad. ¡Sigue así!</div>
                 </div>
             ) : (
-                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg">
-                    <div class="font-semibold">💪 ¡No te rindas!</div>
-                    <div class="text-sm">Revisa el material y vuelve a intentar</div>
+                <div class="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-lg">
+                    <div class="font-semibold text-lg mb-2">📚 Necesitas estudiar más</div>
+                    <div class="text-sm">Te recomendamos revisar el material y volver a intentar el quiz para mejorar tu comprensión.</div>
                 </div>
             )}
         </div>
 
+        <!-- Botones de acción -->
         <div class="flex gap-3 justify-center">
             <a href="/quiz" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg transition-all duration-300 font-medium">
                 🔄 Repetir Quiz
