@@ -1,0 +1,40 @@
+/* Estilos adicionales para la página de Trabajo, Tecnología y Sociedad */
+/* Complementa Tailwind CSS para elementos específicos */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ring-2 {
+    ring-width: 2px;
+    ring-color: #3b82f6; /* Azul para resaltar selecciones */
+}
+
+.option-btn {
+    transition: background-color 0.2s ease;
+}
+
+.option-btn:hover {
+    background-color: #e5e7eb; /* Gris claro para hover */
+}
+
+#timer {
+    font-weight: bold;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    #app {
+        padding: 1rem;
+    }
+    
+    .flex.space-x-4 {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    button {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}

@@ -1,0 +1,700 @@
+---
+// Quiz de Trabajo, Tecnología y Sociedad - Con justificaciones
+const questions = [
+    {
+        question: "¿Qué significa CTS en el contexto de Ciencia, Tecnología y Sociedad?",
+        options: ["Ciencia, Tecnología y Salud", "Ciencia, Tecnología y Sociedad", "Ciencia, Trabajo y Sociedad", "Ciencia, Tecnología y Sostenibilidad"],
+        correct: 1,
+        explanation: "CTS significa Ciencia, Tecnología y Sociedad, que es el enfoque interdisciplinario que estudia las interacciones entre estos tres elementos y su impacto social."
+    },
+    {
+        question: "¿Cuál es el objetivo principal de la investigación científica?",
+        options: ["Generar productos comerciales", "Comprender fenómenos naturales", "Resolver problemas inmediatos", "Crear patentes"],
+        correct: 1,
+        explanation: "La investigación científica busca fundamentalmente comprender y explicar los fenómenos naturales, aunque sus resultados puedan tener aplicaciones prácticas."
+    },
+    {
+        question: "¿Qué modelo de desarrollo científico-tecnológico sigue una secuencia lineal?",
+        options: ["Modelo Interactivo", "Modelo Lineal", "Modelo de Demanda Social", "Modelo de Triple Hélice"],
+        correct: 1,
+        explanation: "El modelo lineal propone una secuencia unidireccional: ciencia básica → desarrollo tecnológico → innovación → mercado."
+    },
+    {
+        question: "¿Qué proceso implica la difusión del conocimiento científico?",
+        options: ["Generación", "Validación", "Transferencia", "Creación"],
+        correct: 2,
+        explanation: "La transferencia de conocimiento implica la difusión y socialización del conocimiento científico hacia la sociedad y otros actores."
+    },
+    {
+        question: "¿Cuál es un ejemplo de innovación tecnológica?",
+        options: ["Estudiar partículas subatómicas", "Desarrollar una nueva batería de litio", "Publicar un artículo académico", "Analizar datos históricos"],
+        correct: 1,
+        explanation: "Desarrollar una nueva batería de litio es un ejemplo de innovación tecnológica porque implica la creación de un nuevo producto o proceso con valor comercial."
+    },
+    {
+        question: "¿Qué barrera limita el acceso equitativo a la tecnología?",
+        options: ["Exceso de conocimiento", "Brecha digital", "Demasiadas opciones", "Falta de innovación"],
+        correct: 1,
+        explanation: "La brecha digital se refiere a las desigualdades en el acceso, uso y beneficio de las tecnologías digitales entre diferentes grupos sociales."
+    },
+    {
+        question: "¿Qué implica la democratización del conocimiento?",
+        options: ["Restringir el acceso", "Hacerlo accesible a todos", "Ocultar información", "Solo para expertos"],
+        correct: 1,
+        explanation: "La democratización del conocimiento busca hacer que el conocimiento científico y tecnológico sea accesible y comprensible para toda la sociedad."
+    },
+    {
+        question: "¿Qué impacto positivo tiene la innovación tecnológica en el trabajo?",
+        options: ["Desempleo masivo", "Nuevos roles laborales", "Aumento de tareas manuales", "Reducción de productividad"],
+        correct: 1,
+        explanation: "La innovación tecnológica puede crear nuevos roles laborales especializados y oportunidades de empleo en sectores emergentes."
+    },
+    {
+        question: "¿Qué enfoque CTS promueve participación ciudadana?",
+        options: ["Modelo Lineal", "Enfoque Político", "Enfoque Educativo", "Enfoque de Investigación"],
+        correct: 1,
+        explanation: "El enfoque político en CTS busca promover la participación ciudadana en las decisiones sobre desarrollo y aplicación de tecnologías."
+    },
+    {
+        question: "¿Qué es la 'brecha digital' según el material?",
+        options: ["Diferencias en el uso de redes sociales", "Desigualdades en el acceso y uso de tecnologías digitales", "Falta de conocimiento científico", "Exceso de innovación"],
+        correct: 1,
+        explanation: "La brecha digital incluye tanto el acceso desigual a las tecnologías como las diferencias en habilidades para usarlas efectivamente."
+    },
+    {
+        question: "¿Qué modelo incluye actores como universidad, empresa y Estado?",
+        options: ["Modelo Lineal", "Modelo Interactivo (Triple Hélice)", "Modelo de Demanda Social", "Modelo de Co-producción"],
+        correct: 1,
+        explanation: "El modelo de Triple Hélice describe la interacción entre universidad, empresa y Estado como actores clave en el sistema de innovación."
+    },
+    {
+        question: "¿Qué tipo de innovación implica cambios en procesos organizacionales?",
+        options: ["Innovación de Producto", "Innovación de Proceso", "Innovación Organizacional", "Innovación Social"],
+        correct: 2,
+        explanation: "La innovación organizacional implica cambios en las estructuras, procesos y prácticas internas de las organizaciones."
+    },
+    {
+        question: "¿Qué ciclo incluye generación, validación y transferencia del conocimiento?",
+        options: ["Ciclo de Innovación", "Ciclo de Producción", "Ciclo Científico-Tecnológico", "Ciclo de Difusión"],
+        correct: 2,
+        explanation: "El ciclo científico-tecnológico incluye las fases de generación, validación y transferencia del conocimiento hacia la aplicación práctica."
+    },
+    {
+        question: "¿Qué impacto tiene la automatización en el trabajo?",
+        options: ["Aumenta siempre el empleo", "Puede desplazar tareas y crear nuevos roles", "Reduce la productividad", "Elimina la necesidad de tecnología"],
+        correct: 1,
+        explanation: "La automatización puede desplazar tareas repetitivas pero también crea nuevos roles laborales que requieren habilidades diferentes."
+    },
+    {
+        question: "¿Qué herramienta se usa para mapear actores en proyectos CTS?",
+        options: ["Mapeo Básico", "Mapeo de Actores, Recursos e Impactos", "Análisis de Casos", "Modelo Lineal"],
+        correct: 1,
+        explanation: "El mapeo ARI (Actores, Recursos e Impactos) es una herramienta CTS para identificar y analizar los diferentes actores involucrados en proyectos tecnológicos."
+    },
+    {
+        question: "¿Qué promueve el enfoque CTS en educación?",
+        options: ["Solo conocimiento técnico", "Alfabetización científica crítica", "Exclusión de valores éticos", "Foco en innovación empresarial"],
+        correct: 1,
+        explanation: "CTS en educación busca desarrollar alfabetización científica crítica, incluyendo la comprensión del impacto social de la ciencia y tecnología."
+    },
+    {
+        question: "¿Qué dilema ético plantea la inteligencia artificial en el trabajo?",
+        options: ["Aumenta la creatividad", "Puede desplazar empleos y generar desigualdades", "Reduce la necesidad de datos", "Elimina la privacidad"],
+        correct: 1,
+        explanation: "La IA plantea dilemas éticos sobre desplazamiento laboral, sesgos algorítmicos y aumento de desigualdades sociales."
+    },
+    {
+        question: "¿Qué modelo es más justo según co-producción socio-técnica?",
+        options: ["Tecnología neutral", "Tecnología configurada con valores sociales", "Modelo lineal con enfoque económico", "Modelo que ignora la sociedad"],
+        correct: 1,
+        explanation: "La co-producción socio-técnica considera que la tecnología debe configurarse con valores sociales para ser más inclusiva y justa."
+    },
+    {
+        question: "¿Qué tensión plantea la innovación disruptiva?",
+        options: ["Siempre beneficiosa", "Transformaciones profundas que pueden desplazar sectores", "Reduce la productividad", "Elimina la regulación"],
+        correct: 1,
+        explanation: "La innovación disruptiva genera tensiones porque transforma profundamente sectores económicos y puede desplazar industrias tradicionales."
+    },
+    {
+        question: "¿Qué implica la 'justicia epistémica' en CTS?",
+        options: ["Valorar solo conocimiento científico", "Reconocer saberes de grupos marginados", "Excluir perspectivas indígenas", "Fomentar desigualdades"],
+        correct: 1,
+        explanation: "La justicia epistémica implica reconocer y valorar los conocimientos y saberes de grupos tradicionalmente marginados o excluidos."
+    },
+    {
+        question: "¿Qué modelo enfatiza orientación por demanda social?",
+        options: ["Modelo Lineal", "Modelo Interactivo", "Modelo Orientado por Demanda Social", "Modelo de Triple Hélice"],
+        correct: 2,
+        explanation: "Este modelo considera que la investigación debe orientarse por las necesidades y demandas reales de la sociedad."
+    },
+    {
+        question: "¿Qué herramienta CTS evalúa impactos ambientales y sociales?",
+        options: ["Análisis de Mercado", "Evaluación de Impactos (matrices FODA)", "Modelo de Innovación Frugal", "Ciclo de Validación"],
+        correct: 1,
+        explanation: "Las matrices FODA permiten evaluar sistemáticamente los impactos ambientales y sociales de las tecnologías."
+    },
+    {
+        question: "¿Qué dilema ético surge con la edición genética (CRISPR)?",
+        options: ["Solo beneficios médicos", "Manipulación de la vida humana y desigualdades", "Reducción de investigación", "Aumento de acceso universal"],
+        correct: 1,
+        explanation: "CRISPR plantea dilemas éticos sobre manipulación genética, desigualdades en acceso y posibles consecuencias no deseadas."
+    },
+    {
+        question: "¿Qué enfoque CTS promueve integración de saberes locales?",
+        options: ["Tecnocracia", "Co-producción socio-técnica", "Modelo Lineal", "Innovación dirigida por demanda"],
+        correct: 1,
+        explanation: "La co-producción socio-técnica busca integrar conocimientos locales y tradicionales con el conocimiento científico experto."
+    },
+    {
+        question: "¿Qué característica define la innovación frugal?",
+        options: ["Alta tecnología compleja", "Bajo costo y contexto local", "Solo para mercados premium", "Sin impacto social"],
+        correct: 1,
+        explanation: "La innovación frugal se caracteriza por soluciones de bajo costo diseñadas específicamente para contextos locales y necesidades reales."
+    },
+    {
+        question: "¿Qué rol juega la participación comunitaria en CTS?",
+        options: ["Decorativo", "Central en co-diseño", "Opcional", "Solo consultivo"],
+        correct: 1,
+        explanation: "La participación comunitaria es central en el enfoque CTS, especialmente en el co-diseño de soluciones tecnológicas apropiadas."
+    },
+    {
+        question: "¿Qué modelo CTS considera tecnología como construcción social?",
+        options: ["Determinista", "Instrumental", "Social Construccionista", "Lineal"],
+        correct: 2,
+        explanation: "El enfoque social construccionista considera que la tecnología no es neutral sino que se construye socialmente con valores y significados."
+    },
+    {
+        question: "¿Qué factor influye en adopción de tecnología rural?",
+        options: ["Solo costo económico", "Contexto cultural y social", "Disponibilidad técnica", "Regulaciones gubernamentales"],
+        correct: 1,
+        explanation: "La adopción de tecnología rural depende del contexto cultural, social y económico específico de cada comunidad."
+    },
+    {
+        question: "¿Qué concepto CTS cuestiona la neutralidad tecnológica?",
+        options: ["Determinismo tecnológico", "Construcción social", "Transferencia lineal", "Innovación abierta"],
+        correct: 1,
+        explanation: "La construcción social cuestiona la idea de que la tecnología es neutral y muestra cómo se configura con valores sociales."
+    },
+    {
+        question: "¿Qué perspectiva CTS incluye género en análisis tecnológicos?",
+        options: ["Tradicional", "Feminista", "Económica", "Técnica"],
+        correct: 1,
+        explanation: "La perspectiva feminista en CTS analiza cómo el género influye en el diseño, uso y acceso a las tecnologías."
+    },
+    {
+        question: "¿Qué marco CTS analiza tecnología y poder?",
+        options: ["Funcionalista", "Crítico", "Estructural", "Conductista"],
+        correct: 1,
+        explanation: "El marco crítico en CTS analiza las relaciones de poder implícitas en el desarrollo y aplicación de tecnologías."
+    },
+    {
+        question: "¿Qué enfoque CTS considera desarrollo endógeno?",
+        options: ["Top-down", "Bottom-up", "Mixto", "Neutral"],
+        correct: 1,
+        explanation: "El enfoque bottom-up considera el desarrollo endógeno, partiendo desde las necesidades y capacidades locales."
+    },
+    {
+        question: "¿Qué se prioriza en biodigestores rurales según CTS?",
+        options: ["Eficiencia técnica máxima", "Adaptación cultural y social", "Costo mínimo", "Producción máxima"],
+        correct: 1,
+        explanation: "En biodigestores rurales se prioriza la adaptación cultural y la participación comunitaria sobre la eficiencia técnica pura."
+    },
+    {
+        question: "¿Qué rol juegan las comunidades en innovación CTS?",
+        options: ["Pasivo", "Activo en co-creación", "Solo como usuarios finales", "Consultivo limitado"],
+        correct: 1,
+        explanation: "Las comunidades juegan un rol activo en la co-creación de soluciones tecnológicas apropiadas a sus contextos específicos."
+    },
+    {
+        question: "¿Qué dimensión incluye CTS en evaluación tecnológica?",
+        options: ["Solo técnica", "Técnica, social, ética y ambiental", "Solo económica", "Solo legal"],
+        correct: 1,
+        explanation: "CTS incluye múltiples dimensiones en la evaluación: técnica, social, ética, ambiental y económica."
+    },
+    {
+        question: "¿Qué perspectiva CTS cuestiona el progreso automático?",
+        options: ["Optimista", "Crítica", "Neutral", "Determinista"],
+        correct: 1,
+        explanation: "La perspectiva crítica cuestiona la idea de que el progreso tecnológico es automático y siempre beneficioso."
+    },
+    {
+        question: "¿Qué concepto CTS aborda desigualdad digital?",
+        options: ["Brecha digital", "Dividendo digital", "Inclusión digital", "Exclusión digital"],
+        correct: 0,
+        explanation: "La brecha digital es el concepto central que aborda las desigualdades en el acceso y uso de tecnologías digitales."
+    },
+    {
+        question: "¿Qué método CTS usa narrativas para análisis?",
+        options: ["Estadístico", "Cualitativo", "Experimental", "Modelado matemático"],
+        correct: 1,
+        explanation: "Los métodos cualitativos, incluyendo análisis narrativos, son comunes en CTS para entender contextos sociales complejos."
+    },
+    {
+        question: "¿Qué enfoque CTS integra conocimiento tradicional?",
+        options: ["Colonial", "Decolonial", "Moderno", "Clásico"],
+        correct: 1,
+        explanation: "El enfoque decolonial busca integrar conocimientos tradicionales e indígenas que han sido marginados por el conocimiento científico occidental."
+    },
+    {
+        question: "¿Qué marco CTS evalúa sostenibilidad tecnológica?",
+        options: ["Solo económico", "Triple bottom line", "Solo ambiental", "Solo social"],
+        correct: 1,
+        explanation: "El triple bottom line evalúa la sostenibilidad considerando aspectos económicos, sociales y ambientales de manera integrada."
+    },
+    {
+        question: "¿Qué concepto CTS cuestiona el universalismo científico?",
+        options: ["Relativismo", "Epistemología situada", "Positivismo", "Racionalismo"],
+        correct: 1,
+        explanation: "La epistemología situada cuestiona la idea de que la ciencia es universal y muestra cómo el conocimiento se produce en contextos específicos."
+    },
+    {
+        question: "¿Qué perspectiva CTS incluye interseccionalidad?",
+        options: ["Individual", "Interseccional", "Universal", "General"],
+        correct: 1,
+        explanation: "La perspectiva interseccional analiza cómo diferentes formas de discriminación (género, raza, clase) se intersectan en el acceso a la tecnología."
+    },
+    {
+        question: "¿Qué marco CTS evalúa justicia en innovación?",
+        options: ["Utilitario", "De justicia social", "Económico", "Técnico"],
+        correct: 1,
+        explanation: "El marco de justicia social evalúa si las innovaciones tecnológicas promueven equidad y no generan nuevas desigualdades."
+    },
+    {
+        question: "¿Qué teoría CTS cuestiona la dicotomía naturaleza/cultura?",
+        options: ["Actor-Red (ANT)", "Social Construccionismo", "Feminismo CTS", "Poscolonial"],
+        correct: 0,
+        explanation: "La Teoría Actor-Red (ANT) cuestiona las dicotomías tradicionales como naturaleza/cultura y considera que ambos se co-construyen mutuamente."
+    },
+    {
+        question: "¿Qué concepto describe tecnología como 'script' social?",
+        options: ["Alineación", "Configuración", "Inscripción", "Traducción"],
+        correct: 2,
+        explanation: "La 'inscripción' es el concepto que describe cómo la tecnología incorpora 'scripts' sociales que guían su uso y comportamiento."
+    },
+    {
+        question: "¿Qué enfoque CTS usa 'boundary objects'?",
+        options: ["Gestión de conocimiento", "Trabajo colaborativo", "Mediación interdisciplinaria", "Evaluación de impacto"],
+        correct: 2,
+        explanation: "Los 'boundary objects' son herramientas conceptuales que facilitan la comunicación y colaboración entre diferentes disciplinas y actores."
+    },
+    {
+        question: "¿Qué método CTS emplea análisis de controversias?",
+        options: ["Estudios de laboratorio", "Análisis de controversias", "Modelado matemático", "Encuestas poblacionales"],
+        correct: 1,
+        explanation: "El análisis de controversias estudia debates públicos sobre tecnologías para entender diferentes perspectivas y valores en juego."
+    },
+    {
+        question: "¿Qué perspectiva CTS integra post-humanismo?",
+        options: ["Antropocéntrica", "Post-humanista", "Humanista", "No-humanista"],
+        correct: 1,
+        explanation: "La perspectiva post-humanista cuestiona el antropocentrismo y considera la agencia de no-humanos (tecnología, naturaleza) en la sociedad."
+    }
+];
+
+// Usar todas las preguntas disponibles
+const currentQuestions = questions;
+---
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo, Tecnología y Sociedad - Evaluación</title>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .quiz-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        .quiz-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .option-btn {
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .option-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #4CAF50, #FFC107, #FF5722);
+            background-size: 200% 100%;
+            animation: progressGradient 3s ease-in-out infinite;
+            transition: width 0.3s ease;
+        }
+
+        @keyframes progressGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .score-badge {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            transition: transform 0.2s ease;
+        }
+
+        .timer-badge {
+            background: linear-gradient(135deg, #2ed573, #1dd1a1);
+        }
+
+        .option-btn.correct {
+            animation: correctPulse 0.6s ease-in-out;
+        }
+
+        .option-btn.incorrect {
+            animation: incorrectShake 0.6s ease-in-out;
+        }
+
+        @keyframes correctPulse {
+            0%, 100% { transform: scale(1); }
+            25%, 75% { transform: scale(1.05); }
+        }
+
+        @keyframes incorrectShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .feedback-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .question-number {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+    </style>
+</head>
+<body class="quiz-container p-6">
+    <div class="max-w-3xl mx-auto">
+        <!-- Modern Header -->
+        <div class="quiz-header rounded-3xl p-8 mb-8 fade-in-up">
+            <div class="flex justify-between items-center mb-6">
+                <div class="flex items-center space-x-4">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                        📚
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            Trabajo, Tecnología y Sociedad
+                        </h1>
+                        <p class="text-gray-600 text-sm font-medium">Evaluación de conocimientos</p>
+                    </div>
+                </div>
+                <div class="score-badge rounded-2xl px-6 py-4 text-white shadow-lg">
+                    <div class="text-3xl font-bold" id="score-display">0</div>
+                    <div class="text-sm opacity-90">Puntos</div>
+                </div>
+            </div>
+
+            <!-- Timer and Progress -->
+            <div class="flex justify-between items-center mb-6">
+                <div class="timer-badge rounded-2xl px-6 py-3 text-white shadow-lg">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-lg">⏱️</span>
+                        <span id="timer" class="text-lg font-mono font-bold">12:00</span>
+                    </div>
+                </div>
+                <div class="flex-1 mx-6">
+                    <div class="flex justify-between text-sm text-gray-600 mb-2">
+                        <span id="progress-text">Pregunta 1 de 50</span>
+                        <span id="progress-percentage">2%</span>
+                    </div>
+                    <div class="w-full bg-white/30 rounded-full h-3 overflow-hidden">
+                        <div id="progress-bar" class="progress-bar h-3 rounded-full" style="width: 2%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question Card -->
+        <div class="question-card rounded-3xl p-8 mb-8 fade-in-up">
+            <div id="question-container">
+                <!-- Preguntas se cargarán aquí -->
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="flex justify-between items-center mt-8">
+                <button id="prev-btn" class="bg-white/80 hover:bg-white text-gray-700 hover:text-gray-900 px-6 py-3 rounded-2xl transition-all duration-300 transform hover:scale-105 font-medium shadow-lg hidden">
+                    ← Anterior
+                </button>
+                <div class="flex-1"></div>
+                <button id="next-btn" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-2xl transition-all duration-300 transform hover:scale-105 font-semibold shadow-lg hidden">
+                    Siguiente →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script define:vars={{ questions }}>
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timeLeft = 720; // 12 minutos para 50 preguntas
+        let timerInterval;
+        let answered = false;
+        let correctAnswers = 0;
+        let totalQuestions = questions.length;
+
+        const questionContainer = document.getElementById('question-container');
+        const timer = document.getElementById('timer');
+        const scoreDisplay = document.getElementById('score-display');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const progressPercentage = document.getElementById('progress-percentage');
+
+        // Iniciar quiz
+        startTimer();
+        updateStats();
+        showQuestion();
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                const timerElement = document.getElementById('timer');
+                timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+                // Visual effects based on time left
+                const timerContainer = timerElement.parentElement;
+
+                if (timeLeft < 300) { // 5 minutes left
+                    timerContainer.className = 'timer-badge rounded-2xl px-6 py-3 text-white shadow-lg animate-pulse';
+                    timerContainer.style.background = 'linear-gradient(135deg, #ff4757, #ff3838)';
+                } else if (timeLeft < 600) { // 10 minutes left
+                    timerContainer.className = 'timer-badge rounded-2xl px-6 py-3 text-white shadow-lg';
+                    timerContainer.style.background = 'linear-gradient(135deg, #ffa502, #ff8500)';
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    endQuiz();
+                }
+            }, 1000);
+        }
+
+        function updateStats() {
+            const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+            const scoreBadge = document.getElementById('score-display').parentElement;
+
+            scoreDisplay.textContent = score;
+            progressBar.style.width = `${progress}%`;
+            progressText.textContent = `Pregunta ${currentQuestionIndex + 1} de ${totalQuestions}`;
+            progressPercentage.textContent = `${Math.round(progress)}%`;
+
+            // Animate score badge when score increases
+            if (score > 0) {
+                scoreBadge.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    scoreBadge.style.transform = 'scale(1)';
+                }, 200);
+            }
+        }
+
+        function showQuestion() {
+            answered = false;
+            if (questions.length === 0) return;
+
+            const question = questions[currentQuestionIndex];
+            const questionNumber = currentQuestionIndex + 1;
+
+            questionContainer.innerHTML = `
+                <div class="fade-in-up">
+                    <!-- Question Header -->
+                    <div class="text-center mb-8">
+                        <div class="question-number inline-block text-white px-6 py-3 rounded-2xl text-sm font-bold mb-4 shadow-lg">
+                            Pregunta ${questionNumber}
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 leading-relaxed">${question.question}</h3>
+                    </div>
+
+                    <!-- Options -->
+                    <div class="space-y-4">
+                        ${question.options.map((opt, i) =>
+                            `<button class="option-btn w-full text-left p-4 bg-white border-2 border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all duration-200" data-index="${i}">
+                                <div class="flex items-center space-x-3">
+                                    <span class="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center text-sm font-semibold text-gray-700">
+                                        ${String.fromCharCode(65 + i)}
+                                    </span>
+                                    <span class="text-gray-800">${opt}</span>
+                                </div>
+                            </button>`
+                        ).join('')}
+                    </div>
+
+                    <!-- Feedback Area -->
+                    <div id="feedback" class="mt-6 text-center hidden">
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="font-semibold mb-2" id="feedback-text"></div>
+                            <div class="text-sm text-gray-600 leading-relaxed" id="feedback-explanation" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.querySelectorAll('.option-btn').forEach(btn => btn.addEventListener('click', selectOption));
+
+            document.getElementById('prev-btn').classList.toggle('hidden', currentQuestionIndex === 0);
+            document.getElementById('next-btn').textContent = currentQuestionIndex === questions.length - 1 ? 'Finalizar' : 'Siguiente';
+            document.getElementById('next-btn').classList.add('hidden');
+
+            updateStats();
+        }
+
+        function selectOption(e) {
+            if (answered) return;
+            answered = true;
+
+            const selected = parseInt(e.target.dataset.index);
+            const correct = questions[currentQuestionIndex].correct;
+            const isCorrect = selected === correct;
+
+            const buttons = document.querySelectorAll('.option-btn');
+            const feedbackDiv = document.getElementById('feedback');
+            const feedbackText = document.getElementById('feedback-text');
+            const feedbackExplanation = document.getElementById('feedback-explanation');
+
+            // Visual feedback
+            if (isCorrect) {
+                e.target.style.backgroundColor = '#dcfce7';
+                e.target.style.borderColor = '#16a34a';
+                e.target.style.color = '#166534';
+                score += 10;
+                correctAnswers++;
+                feedbackText.textContent = '✅ ¡Correcto! +10 puntos';
+                feedbackText.className = 'text-green-600 font-semibold';
+                if (feedbackExplanation) {
+                    feedbackExplanation.textContent = questions[currentQuestionIndex].explanation;
+                    feedbackExplanation.style.display = 'block';
+                }
+            } else {
+                e.target.style.backgroundColor = '#fef2f2';
+                e.target.style.borderColor = '#dc2626';
+                e.target.style.color = '#991b1b';
+                feedbackText.textContent = '❌ Incorrecto - La respuesta era ' + String.fromCharCode(65 + correct);
+                feedbackText.className = 'text-red-600 font-semibold';
+                if (feedbackExplanation) {
+                    feedbackExplanation.textContent = 'Justificación: ' + questions[currentQuestionIndex].explanation;
+                    feedbackExplanation.style.display = 'block';
+                }
+            }
+
+            // Mark correct answer if wrong
+            if (!isCorrect) {
+                buttons[correct].style.backgroundColor = '#dcfce7';
+                buttons[correct].style.borderColor = '#16a34a';
+                buttons[correct].style.color = '#166534';
+            }
+
+            // Disable all buttons
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                btn.style.cursor = 'not-allowed';
+            });
+
+            // Show feedback and next button
+            feedbackDiv.classList.remove('hidden');
+            document.getElementById('next-btn').classList.remove('hidden');
+
+            // Auto-advance after shorter delay
+            setTimeout(() => {
+                if (currentQuestionIndex < questions.length - 1) {
+                    currentQuestionIndex++;
+                    showQuestion();
+                } else {
+                    endQuiz();
+                }
+            }, 2000);
+        }
+
+        document.getElementById('next-btn').addEventListener('click', () => {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion();
+            } else {
+                endQuiz();
+            }
+        });
+
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion();
+            }
+        });
+
+        function endQuiz() {
+            clearInterval(timerInterval);
+            const finalScore = Math.round((score / (totalQuestions * 10)) * 100);
+            window.location.href = `/result?score=${score}&total=${totalQuestions * 10}&percentage=${finalScore}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+---
+// Página de resultados
+const { score, total, percentage } = Astro.url.searchParams;
+const numScore = parseInt(score) || 0;
+const numTotal = parseInt(total) || 0;
+const numPercentage = parseInt(percentage) || 0;
+---
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados - Trabajo, Tecnología y Sociedad</title>
+    <style>
+        .result-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .result-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="result-container flex items-center justify-center p-6">
+    <div class="w-full max-w-2xl result-card p-8 rounded-2xl shadow-2xl text-center">
+        <div class="mb-6">
+            <div class="w-20 h-20 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl">🎉</span>
+            </div>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">¡Quiz Completado!</h2>
+            <p class="text-gray-600">Trabajo, Tecnología y Sociedad</p>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 mb-8">
+            <div class="bg-blue-50 p-4 rounded-xl">
+                <div class="text-2xl font-bold text-blue-600">{numScore}</div>
+                <div class="text-sm text-gray-600">Puntos</div>
+            </div>
+            <div class="bg-green-50 p-4 rounded-xl">
+                <div class="text-2xl font-bold text-green-600">{numPercentage}%</div>
+                <div class="text-sm text-gray-600">Precisión</div>
+            </div>
+            <div class="bg-purple-50 p-4 rounded-xl">
+                <div class="text-2xl font-bold text-purple-600">{numScore}/{numTotal}</div>
+                <div class="text-sm text-gray-600">Respuestas</div>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            {numPercentage >= 90 ? (
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg">
+                    <div class="font-semibold">🎯 ¡Excelente trabajo!</div>
+                    <div class="text-sm">Dominas completamente el tema</div>
+                </div>
+            ) : numPercentage >= 70 ? (
+                <div class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded-lg">
+                    <div class="font-semibold">👍 ¡Buen trabajo!</div>
+                    <div class="text-sm">Tienes un buen conocimiento del tema</div>
+                </div>
+            ) : numPercentage >= 50 ? (
+                <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded-lg">
+                    <div class="font-semibold">📚 ¡Sigue practicando!</div>
+                    <div class="text-sm">Puedes mejorar con un poco más de estudio</div>
+                </div>
+            ) : (
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg">
+                    <div class="font-semibold">💪 ¡No te rindas!</div>
+                    <div class="text-sm">Revisa el material y vuelve a intentar</div>
+                </div>
+            )}
+        </div>
+
+        <div class="flex gap-3 justify-center">
+            <a href="/quiz" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg transition-all duration-300 font-medium">
+                🔄 Repetir Quiz
+            </a>
+            <a href="/" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition-all duration-300 font-medium">
+                🏠 Inicio
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo, Tecnología y Sociedad - Cuestionarios</title>
+    <!-- Tailwind CSS vía CDN para estilos modernos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Estilos adicionales -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div id="app" class="w-full max-w-4xl p-6">
+        <!-- Pantalla de Inicio -->
+        <div id="start-screen" class="bg-white p-8 rounded-lg shadow-lg text-center">
+            <h1 class="text-3xl font-bold text-blue-600 mb-6">Trabajo, Tecnología y Sociedad</h1>
+            <p class="text-gray-700 mb-8">Selecciona la dificultad y el modo para comenzar el cuestionario.</p>
+
+            <!-- Selección de Dificultad -->
+            <div class="mb-6">
+                <h2 class="text-xl font-semibold mb-4">Dificultad</h2>
+                <div class="flex justify-center space-x-4">
+                    <button id="easy-btn" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition">Fácil</button>
+                    <button id="normal-btn" class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-600 transition">Normal</button>
+                    <button id="hard-btn" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition">Difícil</button>
+                </div>
+            </div>
+
+            <!-- Selección de Modo -->
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold mb-4">Modo</h2>
+                <div class="flex justify-center space-x-4">
+                    <button id="practice-btn" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition">Práctica</button>
+                    <button id="real-btn" class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition">Real (con tiempo)</button>
+                </div>
+            </div>
+
+            <button id="start-quiz" class="bg-indigo-600 text-white px-8 py-4 rounded-lg hover:bg-indigo-700 transition hidden">Iniciar Cuestionario</button>
+        </div>
+
+        <!-- Pantalla de Cuestionario -->
+        <div id="quiz-screen" class="bg-white p-8 rounded-lg shadow-lg hidden">
+            <div class="flex justify-between items-center mb-6">
+                <h2 id="quiz-title" class="text-2xl font-bold">Cuestionario</h2>
+                <div id="timer" class="text-xl font-mono text-red-600">Tiempo: 10:00</div>
+            </div>
+            <div id="question-container">
+                <!-- Preguntas se cargarán aquí dinámicamente -->
+            </div>
+            <div class="mt-6 flex justify-between">
+                <button id="prev-btn" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition hidden">Anterior</button>
+                <button id="next-btn" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Siguiente</button>
+            </div>
+        </div>
+
+        <!-- Pantalla de Resultados -->
+        <div id="result-screen" class="bg-white p-8 rounded-lg shadow-lg text-center hidden">
+            <h2 class="text-3xl font-bold text-green-600 mb-4">¡Cuestionario Completado!</h2>
+            <p id="score" class="text-xl mb-4">Tu puntuación: X/10</p>
+            <p id="feedback" class="text-gray-700 mb-6"></p>
+            <button id="restart-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition">Reiniciar</button>
+        </div>
+    </div>
+
+    <!-- JavaScript integrado para simplicidad y despliegue en Netlify -->
+    <script>
+        // Banco de preguntas basado en el material proporcionado
+        const questions = {
+            easy: [
+                { question: "¿Qué significa CTS en el contexto de Ciencia, Tecnología y Sociedad?", options: ["Ciencia, Tecnología y Salud", "Ciencia, Tecnología y Sociedad", "Ciencia, Trabajo y Sociedad", "Ciencia, Tecnología y Sostenibilidad"], correct: 1 },
+                { question: "¿Cuál es el objetivo principal de la investigación científica?", options: ["Generar productos comerciales", "Comprender fenómenos naturales", "Resolver problemas inmediatos", "Crear patentes"], correct: 1 },
+                { question: "¿Qué modelo de desarrollo científico-tecnológico sigue una secuencia lineal (Ciencia → Tecnología → Innovación)?", options: ["Modelo Interactivo", "Modelo Lineal", "Modelo de Demanda Social", "Modelo de Triple Hélice"], correct: 1 },
+                { question: "¿Qué proceso implica la difusión y socialización del conocimiento científico?", options: ["Generación de conocimiento", "Validación de conocimiento", "Transferencia de conocimiento", "Creación de tecnología"], correct: 2 },
+                { question: "¿Cuál es un ejemplo de innovación tecnológica según el material?", options: ["Estudiar partículas subatómicas", "Desarrollar una nueva batería de litio", "Publicar un artículo académico", "Analizar datos históricos"], correct: 1 },
+                { question: "¿Qué barrera limita el acceso equitativo a la tecnología?", options: ["Exceso de conocimiento", "Brecha digital", "Demasiadas opciones", "Falta de innovación"], correct: 1 },
+                { question: "¿Qué unidad temática aborda la innovación tecnológica y el trabajo?", options: ["Unidad 1", "Unidad 2", "Unidad 3", "Unidad 4"], correct: 2 },
+                { question: "¿Qué implica la democratización del conocimiento?", options: ["Restringir el acceso", "Hacerlo accesible a todos", "Ocultar información", "Solo para expertos"], correct: 1 },
+                { question: "¿Cuál es un impacto positivo de la innovación tecnológica en el trabajo?", options: ["Desempleo masivo", "Nuevos roles laborales", "Aumento de tareas manuales", "Reducción de productividad"], correct: 1 },
+                { question: "¿Qué enfoque CTS promueve la participación ciudadana en decisiones tecnológicas?", options: ["Modelo Lineal", "Enfoque Político", "Enfoque Educativo", "Enfoque de Investigación"], correct: 1 }
+            ],
+            normal: [
+                { question: "Diferencia clave entre investigación científica y tecnológica: la científica busca...", options: ["Aplicaciones inmediatas", "Comprensión profunda sin aplicación inmediata", "Productos comerciales", "Patentes rápidas"], correct: 1 },
+                { question: "¿Qué es la 'brecha digital' según el material?", options: ["Diferencias en el uso de redes sociales", "Desigualdades en el acceso y uso de tecnologías digitales", "Falta de conocimiento científico", "Exceso de innovación"], correct: 1 },
+                { question: "¿Qué modelo incluye actores como universidad, empresa y Estado?", options: ["Modelo Lineal", "Modelo Interactivo (Triple Hélice)", "Modelo de Demanda Social", "Modelo de Co-producción"], correct: 1 },
+                { question: "¿Qué tipo de innovación implica cambios en procesos organizacionales?", options: ["Innovación de Producto", "Innovación de Proceso", "Innovación Organizacional", "Innovación Social"], correct: 2 },
+                { question: "¿Qué ciclo incluye generación, validación y transferencia del conocimiento?", options: ["Ciclo de Innovación", "Ciclo de Producción", "Ciclo Científico-Tecnológico", "Ciclo de Difusión"], correct: 2 },
+                { question: "¿Qué impacto tiene la automatización en el trabajo según el material?", options: ["Aumenta siempre el empleo", "Puede desplazar tareas y crear nuevos roles", "Reduce la productividad", "Elimina la necesidad de tecnología"], correct: 1 },
+                { question: "¿Qué herramienta se usa para mapear actores, recursos e impactos en proyectos CTS?", options: ["Mapeo Básico", "Mapeo de Actores, Recursos e Impactos", "Análisis de Casos", "Modelo Lineal"], correct: 1 },
+                { question: "¿Qué promueve el enfoque CTS en educación?", options: ["Solo conocimiento técnico", "Alfabetización científica crítica", "Exclusión de valores éticos", "Foco en innovación empresarial"], correct: 1 },
+                { question: "¿Qué dilema ético plantea la inteligencia artificial en el trabajo?", options: ["Aumenta la creatividad", "Puede desplazar empleos y generar desigualdades", "Reduce la necesidad de datos", "Elimina la privacidad"], correct: 1 },
+                { question: "¿Qué unidad aborda la gestión y estrategias de innovación?", options: ["Unidad 3", "Unidad 4", "Unidad 5", "Unidad 6"], correct: 1 }
+            ],
+            hard: [
+                { question: "Explica el modelo de 'co-producción socio-técnica' y por qué se considera más justo.", options: ["Tecnología neutral sin influencia social", "Tecnología configurada con valores sociales para inclusión", "Modelo lineal con enfoque económico", "Modelo que ignora la sociedad"], correct: 1 },
+                { question: "¿Cómo se articulan ciencia, tecnología y necesidades productivas en un caso como los biodigestores rurales?", options: ["Solo ciencia básica", "Integración de investigación, diseño y demandas comunitarias", "Exclusión de actores locales", "Foco en ganancias económicas"], correct: 1 },
+                { question: "¿Qué tensión plantea la innovación disruptiva según el material?", options: ["Siempre beneficiosa", "Transformaciones profundas que pueden desplazar sectores", "Reduce la productividad", "Elimina la regulación"], correct: 1 },
+                { question: "¿Qué implica la 'justicia epistémica' en CTS?", options: ["Valorar solo conocimiento científico", "Reconocer saberes de grupos marginados", "Excluir perspectivas indígenas", "Fomentar desigualdades"], correct: 1 },
+                { question: "¿Qué modelo de desarrollo CTS enfatiza la orientación por demanda social y participación comunitaria?", options: ["Modelo Lineal", "Modelo Interactivo", "Modelo Orientado por Demanda Social", "Modelo de Triple Hélice"], correct: 2 },
+                { question: "¿Qué herramienta CTS evalúa impactos ambientales y sociales de la tecnología?", options: ["Análisis de Mercado", "Evaluación de Impactos (matrices FODA)", "Modelo de Innovación Frugal", "Ciclo de Validación"], correct: 1 },
+                { question: "¿Qué consecuencia de la brecha informacional afecta la toma de decisiones?", options: ["Mayor acceso a datos", "Dificultad para interpretar información crítica", "Aumento de participación", "Reducción de desigualdades"], correct: 1 },
+                { question: "¿Qué unidad temática analiza casos complejos de innovaciones disruptivas?", options: ["Unidad 4", "Unidad 5", "Unidad 6", "Unidad 1"], correct: 1 },
+                { question: "¿Qué dilema ético surge con la edición genética (CRISPR) en el contexto CTS?", options: ["Solo beneficios médicos", "Manipulación de la vida humana y desigualdades", "Reducción de investigación", "Aumento de acceso universal"], correct: 1 },
+                { question: "¿Qué enfoque CTS promueve la integración de saberes locales en proyectos tecnológicos?", options: ["Tecnocracia", "Co-producción socio-técnica", "Modelo Lineal", "Innovación dirigida por demanda"], correct: 1 }
+            ]
+        };
+
+        // Variables globales
+        let currentDifficulty = '';
+        let currentMode = '';
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timerInterval;
+        let timeLeft = 600; // 10 minutos en segundos
+
+        // Elementos DOM
+        const startScreen = document.getElementById('start-screen');
+        const quizScreen = document.getElementById('quiz-screen');
+        const resultScreen = document.getElementById('result-screen');
+        const questionContainer = document.getElementById('question-container');
+        const quizTitle = document.getElementById('quiz-title');
+        const timer = document.getElementById('timer');
+        const easyBtn = document.getElementById('easy-btn');
+        const normalBtn = document.getElementById('normal-btn');
+        const hardBtn = document.getElementById('hard-btn');
+        const practiceBtn = document.getElementById('practice-btn');
+        const realBtn = document.getElementById('real-btn');
+        const startQuizBtn = document.getElementById('start-quiz');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const restartBtn = document.getElementById('restart-btn');
+
+        // Eventos para selección
+        easyBtn.addEventListener('click', () => selectDifficulty('easy'));
+        normalBtn.addEventListener('click', () => selectDifficulty('normal'));
+        hardBtn.addEventListener('click', () => selectDifficulty('hard'));
+        practiceBtn.addEventListener('click', () => selectMode('practice'));
+        realBtn.addEventListener('click', () => selectMode('real'));
+
+        function selectDifficulty(diff) {
+            currentDifficulty = diff;
+            easyBtn.classList.toggle('ring-2', diff === 'easy');
+            normalBtn.classList.toggle('ring-2', diff === 'normal');
+            hardBtn.classList.toggle('ring-2', diff === 'hard');
+            checkSelections();
+        }
+
+        function selectMode(mode) {
+            currentMode = mode;
+            practiceBtn.classList.toggle('ring-2', mode === 'practice');
+            realBtn.classList.toggle('ring-2', mode === 'real');
+            checkSelections();
+        }
+
+        function checkSelections() {
+            if (currentDifficulty && currentMode) {
+                startQuizBtn.classList.remove('hidden');
+            }
+        }
+
+        startQuizBtn.addEventListener('click', startQuiz);
+
+        function startQuiz() {
+            currentQuestions = questions[currentDifficulty].slice(); // Copia las preguntas
+            currentQuestionIndex = 0;
+            score = 0;
+            startScreen.classList.add('hidden');
+            quizScreen.classList.remove('hidden');
+            if (currentMode === 'real') {
+                timeLeft = currentDifficulty === 'easy' ? 600 : currentDifficulty === 'normal' ? 720 : 900;
+                startTimer();
+            } else {
+                timer.classList.add('hidden');
+            }
+            showQuestion();
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timer.textContent = `Tiempo: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    endQuiz();
+                }
+            }, 1000);
+        }
+
+        function showQuestion() {
+            const question = currentQuestions[currentQuestionIndex];
+            questionContainer.innerHTML = `
+                <div class="mb-4">
+                    <h3 class="text-xl mb-4">${currentQuestionIndex + 1}. ${question.question}</h3>
+                    <div class="space-y-2">
+                        ${question.options.map((opt, i) => `<button class="option-btn w-full text-left p-3 bg-gray-100 hover:bg-gray-200 rounded-lg" data-index="${i}">${opt}</button>`).join('')}
+                    </div>
+                </div>
+            `;
+            document.querySelectorAll('.option-btn').forEach(btn => btn.addEventListener('click', selectOption));
+            prevBtn.classList.toggle('hidden', currentQuestionIndex === 0);
+            nextBtn.textContent = currentQuestionIndex === currentQuestions.length - 1 ? 'Finalizar' : 'Siguiente';
+        }
+
+        function selectOption(e) {
+            const selected = parseInt(e.target.dataset.index);
+            if (selected === currentQuestions[currentQuestionIndex].correct) {
+                score++;
+            }
+            if (currentQuestionIndex < currentQuestions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion();
+            } else {
+                endQuiz();
+            }
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestionIndex < currentQuestions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion();
+            } else {
+                endQuiz();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion();
+            }
+        });
+
+        function endQuiz() {
+            clearInterval(timerInterval);
+            quizScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+            document.getElementById('score').textContent = `Tu puntuación: ${score}/${currentQuestions.length}`;
+            document.getElementById('feedback').textContent = score >= 8 ? '¡Excelente! Dominas el tema.' : score >= 5 ? 'Buen trabajo, pero puedes mejorar.' : 'Revisa el material y intenta de nuevo.';
+        }
+
+        restartBtn.addEventListener('click', () => {
+            resultScreen.classList.add('hidden');
+            startScreen.classList.remove('hidden');
+            currentDifficulty = '';
+            currentMode = '';
+            easyBtn.classList.remove('ring-2');
+            normalBtn.classList.remove('ring-2');
+            hardBtn.classList.remove('ring-2');
+            practiceBtn.classList.remove('ring-2');
+            realBtn.classList.remove('ring-2');
+            startQuizBtn.classList.add('hidden');
+            timer.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+---
+// Página principal simplificada - acceso directo al cuestionario
+---
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo, Tecnología y Sociedad - Inicio</title>
+    <style>
+        .hero-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: all 0.3s ease;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body class="hero-container flex items-center justify-center p-6">
+    <div class="w-full max-w-2xl hero-card p-12 rounded-3xl shadow-2xl text-center fade-in">
+        <div class="mb-8">
+            <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <span class="text-3xl">📚</span>
+            </div>
+            <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+                Trabajo, Tecnología y Sociedad
+            </h1>
+            <p class="text-gray-600 text-lg mb-8">
+                Evaluación de conocimientos con justificaciones académicas
+            </p>
+        </div>
+
+        <div class="mb-8">
+            <div class="grid grid-cols-3 gap-6 text-center">
+                <div class="bg-blue-50 p-4 rounded-2xl">
+                    <div class="text-2xl font-bold text-blue-600">50</div>
+                    <div class="text-sm text-gray-600">Preguntas</div>
+                </div>
+                <div class="bg-green-50 p-4 rounded-2xl">
+                    <div class="text-2xl font-bold text-green-600">12</div>
+                    <div class="text-sm text-gray-600">Minutos</div>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-2xl">
+                    <div class="text-2xl font-bold text-purple-600">500</div>
+                    <div class="text-sm text-gray-600">Puntos máx.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <a href="/quiz" class="start-btn block w-full text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg">
+                🚀 Comenzar Evaluación
+            </a>
+
+            <div class="text-center">
+                <p class="text-gray-500 text-sm">
+                    ✅ Incluye justificaciones académicas<br>
+                    ✅ Feedback visual inmediato<br>
+                    ✅ Sin niveles de dificultad
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
